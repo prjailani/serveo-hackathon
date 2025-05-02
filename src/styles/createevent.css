@@ -9,6 +9,10 @@ body {
     background: #151515;
 }
 
+:root {
+    overflow-x: hidden;
+}
+
 .topbar {
     display: flex;
     width: 85vw;
@@ -29,7 +33,6 @@ body {
     font-style: normal;
     font-weight: 900;
     line-height: 2.95169rem;
-    /* 150.595% */
 }
 
 .eventform {
@@ -103,7 +106,6 @@ input:checked+.slider::before {
     font-style: normal;
     font-weight: 900;
     line-height: 2.95169rem;
-    /* 150.595% */
 }
 
 .eventform form {
@@ -119,7 +121,6 @@ input:checked+.slider::before {
     align-items: center;
     gap: 1.25rem;
     align-self: stretch;
-    width: 100%;
 }
 
 .eventform form input {

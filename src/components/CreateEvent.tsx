@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/createevent.css';
 import { ethers } from 'ethers';
 import VolunteerContractABI from '../abis/VolunteerContract.json';
+import SideBar from './SideBar';
 
 const contractAddress = '0x5FC8d32690cc91D4c39d9d3abcBD16989F875707';
 
@@ -39,8 +40,7 @@ const CreateEvent: React.FC = () => {
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
     const file = e.target.files?.[0];
     if (file) {
-      // You would upload this file to IPFS or your backend here
-      const fakeHash = 'ipfsHashHere'; // simulate hash for now
+      const fakeHash = 'ipfsHashHere';
       setFormData((prevData) => ({
         ...prevData,
         [field]: fakeHash,
@@ -110,35 +110,7 @@ const CreateEvent: React.FC = () => {
 
   return (
     <div>
-      <aside className="sidebar">
-        <div className="logo">
-          <img src="./serveologo.svg" alt="Logo" />
-        </div>
-        <nav className="nav-links">
-          {[
-            { icon: "home", label: "Home" },
-            { icon: "dashboard", label: "Dashboard" },
-            { icon: "profile", label: "Profile" },
-            { icon: "messages", label: "Messages" },
-            { icon: "tasks", label: "Tasks" },
-            { icon: "settings", label: "Settings" },
-            { icon: "notifications", label: "Notifications" },
-            { icon: "calendar", label: "Calendar" },
-            { icon: "reports", label: "Reports" },
-            { icon: "files", label: "Files" },
-            { icon: "help", label: "Help" },
-            { icon: "team", label: "Team" },
-            { icon: "analytics", label: "Analytics" },
-            { icon: "logout", label: "Logout" }
-          ].map((item, index) => (
-            <a key={index} href="#" className={`nav-item ${item.label === "Home" ? 'active' : ''}`}>
-              <img src={`icons/${item.icon}.svg`} alt={item.label} />
-              <span>{item.label}</span>
-            </a>
-          ))}
-        </nav>
-      </aside>
-
+      <SideBar></SideBar>
       <div className="topbar">
         <h2>Howdy Orion's Reach</h2>
       </div>

@@ -127,7 +127,7 @@ const CONTRACT_ABI = [
     stateMutability: "view",
     type: "function",
   },
-]; // paste ABI as a JS object (not a string)
+];
 
 function Volunteer() {
   const [dateTimes, setDateTimes] = useState([{ date: "", time: "" }]);

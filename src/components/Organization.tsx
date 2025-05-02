@@ -9,43 +9,39 @@ declare global {
 import { ethers } from "ethers";
 import "../styles/form.css";
 
-const CONTRACT_ADDRESS = "0x7EF2e0048f5bAeDe046f6BF797943daF4ED8CB47";
+const CONTRACT_ADDRESS = "0x9D7f74d0C41E726EC95884E0e97Fa6129e3b5E99";
 const CONTRACT_ABI = [
 	{
+		"anonymous": false,
 		"inputs": [
 			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "organization",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "eventId",
+				"type": "uint256"
+			}
+		],
+		"name": "EventCreated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
 				"internalType": "address",
 				"name": "volunteer",
 				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "eventId",
-				"type": "uint256"
 			}
 		],
-		"name": "acceptVolunteer",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "org",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "eventId",
-				"type": "uint256"
-			}
-		],
-		"name": "applyForEvent",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		"name": "VolunteerRegistered",
+		"type": "event"
 	},
 	{
 		"inputs": [
@@ -158,142 +154,14 @@ const CONTRACT_ABI = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
 				"internalType": "address",
-				"name": "volunteer",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "organization",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "eventId",
-				"type": "uint256"
-			}
-		],
-		"name": "ApplicationAccepted",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "volunteer",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "credits",
-				"type": "uint256"
-			}
-		],
-		"name": "CreditsUpdated",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "volunteer",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "organization",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "eventId",
-				"type": "uint256"
-			}
-		],
-		"name": "EventApplied",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "organization",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "eventId",
-				"type": "uint256"
-			}
-		],
-		"name": "EventCreated",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_displayName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_skills",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_profileBio",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_profilePictureHash",
-				"type": "string"
-			}
-		],
-		"name": "registerVolunteer",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "volunteer",
+				"name": "_organization",
 				"type": "address"
 			}
 		],
-		"name": "VolunteerRegistered",
-		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "getAllEvents",
+		"name": "getOrganizationEvents",
 		"outputs": [
 			{
 				"components": [
@@ -405,16 +273,41 @@ const CONTRACT_ABI = [
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "volunteer",
+				"name": "_volunteer",
 				"type": "address"
 			}
 		],
-		"name": "getRemainingCredits",
+		"name": "getVolunteer",
 		"outputs": [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"internalType": "string",
+				"name": "displayName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "skills",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "profileBio",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "profilePictureHash",
+				"type": "string"
+			},
+			{
+				"internalType": "string[]",
+				"name": "dates",
+				"type": "string[]"
+			},
+			{
+				"internalType": "string[]",
+				"name": "times",
+				"type": "string[]"
 			}
 		],
 		"stateMutability": "view",
@@ -437,6 +330,44 @@ const CONTRACT_ABI = [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_displayName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_skills",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_profileBio",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_profilePictureHash",
+				"type": "string"
+			},
+			{
+				"internalType": "string[]",
+				"name": "_dates",
+				"type": "string[]"
+			},
+			{
+				"internalType": "string[]",
+				"name": "_times",
+				"type": "string[]"
+			}
+		],
+		"name": "registerVolunteer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ];

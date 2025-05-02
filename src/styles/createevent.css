@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Karla', sans-serif;
+    background: #151515;
+}
+
+.sidebar {
+    width: 15vw;
+    height: 100vh;
+    border-right: 1px solid #616161;
+    background: #262626;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: fixed;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #ccc;
+    transition: background 0.3s ease;
+}
+
+.nav-item img {
+    width: 20px;
+    height: 20px;
+}
+
+.nav-item:hover {
+    background-color: #333333;
+    color: white;
+}
+
+.nav-item.active {
+    border-radius: 0.6875rem;
+    background: #FFF;
+}
+
+.nav-item.active span {
+    color: #262626;
+}
+
+.nav-links span {
+    color: #FFF;
+    font-family: Karla;
+    font-size: 1.22988rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.02463rem;
+}
+
+.topbar {
+    display: flex;
+    width: 85vw;
+    height: 5.8125rem;
+    padding: 1.375rem 3.6875rem;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+    border-bottom: 1px solid #616161;
+    background: #262626;
+    margin-left: 15vw;
+}
+
+.topbar h2 {
+    color: var(--Neutraul-01---DDDDD, #DDD);
+    font-family: Inter;
+    font-size: 1.96rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 2.95169rem;
+    /* 150.595% */
+}
+
+.eventform {
+    margin-left: 17vw;
+    max-width: 75%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #4CAF50;
+}
+
+input:checked+.slider::before {
+    transform: translateX(26px);
+}
+
+.eventform {
+    display: flex;
+    padding: 1.625rem 3.375rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+    flex-shrink: 0;
+    border-radius: 0.875rem;
+    border: 1px solid #616161;
+    background: #262626;
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+
+.eventform h3 {
+    color: var(--Neutraul-01---DDDDD, #DDD);
+    font-family: Inter;
+    font-size: 1.96rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 2.95169rem;
+    /* 150.595% */
+}
+
+.eventform form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.3125rem;
+    align-self: stretch;
+}
+
+.eventform form .form-group {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    align-self: stretch;
+    width: 100%;
+}
+
+.eventform form input {
+    display: flex;
+    padding: 1.26831rem 1.22988rem;
+    align-items: flex-start;
+    gap: 0.61494rem;
+    border-radius: 0.61494rem;
+    background: var(--Neutraul-09---101010, #101010);
+    color: var(--Neutraul-03---808080, #808080);
+    font-family: Karla;
+    font-size: 1.22988rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.02463rem;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    flex: 1;
+    min-width: 0;
+}
+
+.eventform form select {
+    display: flex;
+    height: 4rem;
+    padding: 1.26831rem 1.22988rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.61494rem;
+    background: var(--Neutraul-09---101010, #101010);
+    color: var(--Neutraul-03---808080, #808080);
+    font-family: Karla;
+    font-size: 1.22988rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.02463rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.eventform form .form-group div {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.eventform p,
+label {
+    color: var(--Neutraul-03---808080, #808080);
+    font-family: Karla;
+    font-size: 1.22988rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.02463rem;
+}
+
+.eventform button {
+    display: flex;
+    padding: 0.875rem 1.125rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    text-wrap: nowrap;
+    border-radius: 1.625rem;
+    border: 1.5px solid #616161;
+    background: #262626;
+    color: #A8A8A8;
+    font-family: Karla;
+    font-size: 1.22988rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.02463rem;
+}
+
+form .submitbutton {
+    position: relative;
+    padding: 0.875rem 1.125rem;
+    background: #362535;
+    color: #fff;
+    border: 1px solid #EB5BE5;
+    font-family: Karla;
+    font-size: 1.22988rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    /* Custom corners via clip-path */
+    clip-path: polygon(
+        0 0,               /* top-left */
+        calc(100% - 1rem) 0,  /* slightly before top-right */
+        100% 1rem,         /* bottom tip of fake corner */
+        100% 100%,         /* bottom-right */
+        0 100%             /* bottom-left */
+    );
+}

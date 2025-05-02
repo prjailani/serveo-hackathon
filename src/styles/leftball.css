@@ -1,0 +1,35 @@
+.left {
+    width: 45vw;
+}
+
+.left img {
+    animation: rotate360 4s linear infinite ;
+    transform-origin: center;
+    width: 90%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .whole {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .left{
+        width: 100%;
+    }
+
+    .left {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .left img {
+        width: 80%;
+        max-width: 300px;
+    }
+}

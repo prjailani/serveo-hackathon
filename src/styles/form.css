@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap');
+
+.whole {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.whole form select {
+    display: flex;
+    padding: 1.26831rem 1.22988rem;
+    align-items: flex-start;
+    gap: 0.61494rem;
+    align-self: stretch;
+    border-radius: 0.61494rem;
+    background: var(--Neutraul-09---101010, #101010);
+    color: var(--Neutraul-03---808080, #808080);
+    font-family: Karla;
+    font-size: 1.22988rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.02463rem;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #151515;
+    background-image: url('../assets/volubg.svg') !important;
+    width: 100%;
+}
+
+.whole h1 {
+    margin: 3rem 0 1rem 0;
+    color: var(--Neutraul-01---DDDDD, #DDD);
+    font-family: Inter;
+    font-size: 2.45975rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 2.95169rem;
+    letter-spacing: -0.04919rem;
+}
+
+.whole form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.right {
+    width: 45vw;
+}
+
+.whole form input,
+textarea {
+    display: flex;
+    padding: 1.26831rem 1.22988rem;
+    align-items: flex-start;
+    gap: 0.61494rem;
+    align-self: stretch;
+    border-radius: 0.61494rem;
+    background: var(--Neutraul-09---101010, #101010);
+    color: var(--Neutraul-03---808080, #808080);
+    font-family: Karla;
+    font-size: 1.22988rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;    .whole form select {
+        display: flex;
+        padding: 1.26831rem 1.22988rem;
+        align-items: flex-start;
+        gap: 0.61494rem;
+        align-self: stretch;
+        border-radius: 0.61494rem;
+        background: var(--Neutraul-09---101010, #101010);
+        color: var(--Neutraul-03---808080, #808080);
+        font-family: Karla;
+        font-size: 1.22988rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.02463rem;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        width: 100%;
+    }
+    letter-spacing: -0.02463rem;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.datebutton {
+    display: flex;
+    padding: 0.875rem 1.125rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    text-wrap: nowrap;
+    border-radius: 1.625rem;
+    border: 1.5px solid #616161;
+    background: #262626;
+    color: #A8A8A8;
+    font-family: Karla;
+    font-size: 1.22988rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.02463rem;
+}
+
+.whole .form-group {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+textarea {
+    height: 15.68075rem;
+}
+
+.file-input {
+    display: none !important;
+}
+
+.file-label{
+    display: flex;
+    padding: 7px 25px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 6px;
+    background: #2D2D2D;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.whole label {
+    color: var(--Neutraul-03---808080, #808080);
+    font-family: Karla;
+    font-size: 1.22988rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.02463rem;
+    
+}
+
+form .submitbutton {
+    position: relative;
+    padding: 0.875rem 1.125rem;
+    background: #362535;
+    color: #fff;
+    border: 1px solid #EB5BE5;
+    font-family: Karla;
+    font-size: 1.22988rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 1rem 0 3rem 0;
+
+    /* Custom corners via clip-path */
+    clip-path: polygon(
+        0 0,               /* top-left */
+        calc(100% - 1rem) 0,  /* slightly before top-right */
+        100% 1rem,         /* bottom tip of fake corner */
+        100% 100%,         /* bottom-right */
+        0 100%             /* bottom-left */
+    );
+}
+
+
+form .submitbutton:hover {
+    background: #4a2c46; /* slightly lighter for hover effect */
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .whole {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    form .form-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .whole form input,
+    textarea {
+        width: 100%;
+    }
+
+    .datebutton,
+    .submitbutton {
+        width: 100%;
+        text-align: center;
+    }
+}

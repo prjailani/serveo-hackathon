@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/leftball.css"; // Import the CSS file for styling
+import "../styles/leftball.css";
 
 const LeftBall: React.FC = () => {
   return (

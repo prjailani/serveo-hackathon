@@ -1,16 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
-import Volunteer from './components/Volunteer'; // import your new page
-import CreateEvent from './components/CreateEvent'; // import your existing page
-import Organization from './components/Organization'; // import your existing page
-import Navbar from './components/Navbar'; // import your existing page
+import Volunteer from './components/Volunteer';
+import CreateEvent from './components/CreateEvent';
+import Organization from './components/Organization';
 
 function App() {
   return (
     <Routes>
-      <Route path="/volunteer" element={<Volunteer />} /> {/* new route */}
-      <Route path="/create-event" element={<CreateEvent />} /> {/* existing route */}
-      <Route path="/organization" element={<Organization />} /> {/* existing route */}
-      <Route path="/navbar" element={<Navbar />} /> {/* existing route */}
+      <Route path="/volunteer" element={<Volunteer />} />
+      <Route path="/create-event" element={<CreateEvent />} /> 
+      <Route path="/organization" element={<Organization />} />
     </Routes>
   );
 }

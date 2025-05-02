@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import LeftBall from "./LeftBall";
 
-// Extend the Window interface to include the ethereum property
 declare global {
   interface Window {
 	ethereum?: any;
@@ -10,7 +9,6 @@ declare global {
 import { ethers } from "ethers";
 import "../styles/form.css";
 
-// 👉 Paste your Contract Address and ABI here
 const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const CONTRACT_ABI = [
 	{
@@ -271,9 +269,8 @@ function Organization() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [description, setDescription] = useState("");
-  const [logoHash, setLogoHash] = useState(""); // optional
+  const [logoHash, setLogoHash] = useState("");
 
-  // Placeholder for organization details if needed
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -292,7 +289,6 @@ function Organization() {
 		signer
 	  );
 
-	  // Call your contract's registerOrganization method here
 	  const tx = await contract.registerOrganization(
 		orgName,
 		tagline,
@@ -307,7 +303,6 @@ function Organization() {
 	  await tx.wait();
 	  alert("Organization registered successfully!");
 
-      // Reset form if needed
       setOrgName("");
       setTagline("");
       setOrgType("");
@@ -340,7 +335,6 @@ function Organization() {
             value={tagline}
             onChange={(e) => setTagline(e.target.value)}
           />
-          {/* Organization Type and Email Address on same line */}
             <div className="form-group">
             <select
               value={orgType}
@@ -368,7 +362,6 @@ function Organization() {
               required
             />
             </div>
-          {/* Address Latitude and Longitude on same line */}
           <div className="form-group">
             <input
               type="text"
@@ -409,7 +402,7 @@ function Organization() {
                 onChange={(e) => {
                   const file = e.target.files?.[0];
                   if (file) {
-                    setLogoHash(file.name); // TEMP: storing filename instead of IPFS hash
+                    setLogoHash(file.name);
                   }
                 }}
               />

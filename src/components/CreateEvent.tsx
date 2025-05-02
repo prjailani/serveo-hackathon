@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/createevent.css';
 import { ethers } from 'ethers';
-import VolunteerContractABI from '../abis/VolunteerContract.json'; // Adjust the path
+import VolunteerContractABI from '../abis/VolunteerContract.json';
 
-const contractAddress = '0x5FC8d32690cc91D4c39d9d3abcBD16989F875707'; // Replace with your deployed contract address
+const contractAddress = '0x5FC8d32690cc91D4c39d9d3abcBD16989F875707';
 
 const CreateEvent: React.FC = () => {
   const [formData, setFormData] = useState({

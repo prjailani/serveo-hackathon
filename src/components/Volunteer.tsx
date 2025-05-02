@@ -190,14 +190,12 @@ function Volunteer() {
       console.log("Transaction confirmed!", tx.hash);
       alert("Volunteer registered successfully!");
 
-      // Reset form if needed
       setDisplayName("");
       setSkills("");
       setProfileBio("");
       setProfilePictureHash("");
       setDateTimes([{ date: "", time: "" }]);
 
-      // Fetch and display volunteer details
       fetchVolunteerDetails(signer.address);
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -301,7 +299,6 @@ function Volunteer() {
               <label htmlFor="file-input" className="file-label">
               Choose Photo
               </label>
-              {/* File upload status */}
               {profilePictureHash ? (
               <span className="file-status">Selected: {profilePictureHash}</span>
               ) : (
@@ -315,7 +312,7 @@ function Volunteer() {
                 onChange={(e) => {
                   const file = e.target.files?.[0];
                   if (file) {
-                    setProfilePictureHash(file.name); // TEMP: storing filename instead of IPFS hash
+                    setProfilePictureHash(file.name);
                   }
                 }}
               />
@@ -327,7 +324,6 @@ function Volunteer() {
           </button>
         </form>
 
-        {/* Display Registered Volunteer Details */}
         {volunteerDetails && (
           <div className="volunteer-details">
             <h2>Your Registered Details:</h2>

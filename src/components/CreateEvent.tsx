@@ -3,7 +3,7 @@ import '../styles/createevent.css';
 import { ethers } from 'ethers';
 import VolunteerContractABI from '../abis/VolunteerContract.json';
 
-const contractAddress = '0x5FC8d32690cc91D4c39d9d3abcBD16989F875707';
+const contractAddress = '0x7EF2e0048f5bAeDe046f6BF797943daF4ED8CB47';
 
 const CreateEvent: React.FC = () => {
   const [formData, setFormData] = useState({

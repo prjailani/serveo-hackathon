@@ -9,124 +9,436 @@ declare global {
 import { ethers } from "ethers";
 import "../styles/form.css";
 
-const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const CONTRACT_ADDRESS = "0x7EF2e0048f5bAeDe046f6BF797943daF4ED8CB47";
 const CONTRACT_ABI = [
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_displayName",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_skills",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_profileBio",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_profilePictureHash",
-        type: "string",
-      },
-      {
-        internalType: "string[]",
-        name: "_dates",
-        type: "string[]",
-      },
-      {
-        internalType: "string[]",
-        name: "_times",
-        type: "string[]",
-      },
-    ],
-    name: "registerVolunteer",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_volunteer",
-        type: "address",
-      },
-    ],
-    name: "getVolunteer",
-    outputs: [
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-      {
-        internalType: "string[]",
-        name: "",
-        type: "string[]",
-      },
-      {
-        internalType: "string[]",
-        name: "",
-        type: "string[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    name: "volunteers",
-    outputs: [
-      {
-        internalType: "string",
-        name: "displayName",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "skills",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "profileBio",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "profilePictureHash",
-        type: "string",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "volunteer",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "eventId",
+				"type": "uint256"
+			}
+		],
+		"name": "acceptVolunteer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "org",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "eventId",
+				"type": "uint256"
+			}
+		],
+		"name": "applyForEvent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "skillsRequired",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "coverPictureHash",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "category",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "volunteeringType",
+						"type": "string"
+					},
+					{
+						"internalType": "int256",
+						"name": "locationLongitude",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "locationLatitude",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "startDateTime",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "endDateTime",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "timezone",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ageRequirement",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "numberOfVolunteersNeeded",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "reputationPoints",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "certificateAvailable",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "preLearningModule",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "allowSquadParticipation",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "preLearningVideosHash",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "preLearningMaterialsHash",
+						"type": "string"
+					}
+				],
+				"internalType": "struct VolunteerRegistration.Event",
+				"name": "_eventData",
+				"type": "tuple"
+			}
+		],
+		"name": "createEvent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "volunteer",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "organization",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "eventId",
+				"type": "uint256"
+			}
+		],
+		"name": "ApplicationAccepted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "volunteer",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "credits",
+				"type": "uint256"
+			}
+		],
+		"name": "CreditsUpdated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "volunteer",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "organization",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "eventId",
+				"type": "uint256"
+			}
+		],
+		"name": "EventApplied",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "organization",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "eventId",
+				"type": "uint256"
+			}
+		],
+		"name": "EventCreated",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_displayName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_skills",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_profileBio",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_profilePictureHash",
+				"type": "string"
+			}
+		],
+		"name": "registerVolunteer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "volunteer",
+				"type": "address"
+			}
+		],
+		"name": "VolunteerRegistered",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "getAllEvents",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "skillsRequired",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "coverPictureHash",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "category",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "volunteeringType",
+						"type": "string"
+					},
+					{
+						"internalType": "int256",
+						"name": "locationLongitude",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "locationLatitude",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "startDateTime",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "endDateTime",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "timezone",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ageRequirement",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "numberOfVolunteersNeeded",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "reputationPoints",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "certificateAvailable",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "preLearningModule",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "allowSquadParticipation",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "preLearningVideosHash",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "preLearningMaterialsHash",
+						"type": "string"
+					}
+				],
+				"internalType": "struct VolunteerRegistration.Event[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "volunteer",
+				"type": "address"
+			}
+		],
+		"name": "getRemainingCredits",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "isRegistered",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
 ]; // paste ABI as a JS object (not a string)
 
 function Volunteer() {

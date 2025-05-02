@@ -9,7 +9,7 @@ declare global {
 import { ethers } from "ethers";
 import "../styles/form.css";
 
-const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const CONTRACT_ADDRESS = "0x9D7f74d0C41E726EC95884E0e97Fa6129e3b5E99";
 const CONTRACT_ABI = [
   {
     inputs: [
@@ -127,7 +127,7 @@ const CONTRACT_ABI = [
     stateMutability: "view",
     type: "function",
   },
-];
+]; // paste ABI as a JS object (not a string)
 
 function Volunteer() {
   const [dateTimes, setDateTimes] = useState([{ date: "", time: "" }]);
